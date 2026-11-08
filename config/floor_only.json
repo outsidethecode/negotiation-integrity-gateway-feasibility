@@ -1,0 +1,63 @@
+{
+  "description": "POST HOC DIAGNOSTIC, declared on 9 Oct 2026 after observing the base-policy result. Identical to base.json except that only the floor price is protected (the per-transaction quantity limit is treated as non-confidential). Purpose: isolate whether the quantity-limit windows caused the base-policy refusals. Not tuned for agreement rates.",
+  "floors": {
+    "min": 50,
+    "max": 89
+  },
+  "limits": {
+    "min": 1,
+    "max": 10
+  },
+  "priors": {
+    "uniform": {
+      "floor_weight": "1",
+      "limit_weight": "1"
+    },
+    "market": {
+      "floor_weight": "1 + max(0, 20 - abs(r - 70))",
+      "limit_weight": "15 - k"
+    }
+  },
+  "generator_prior": "market",
+  "windows": {
+    "floor_width": 5,
+    "limit_width": 3,
+    "offsets": "every offset"
+  },
+  "threshold": "1/2",
+  "round_limit": 8,
+  "seller_public": {
+    "ask_start": 95,
+    "ask_step": 3,
+    "ask_min": 50,
+    "quantity_cap": 10
+  },
+  "buyers": {
+    "valuation": {
+      "min": 55,
+      "max": 95
+    },
+    "max_quantity": {
+      "min": 2,
+      "max": 8
+    },
+    "min_quantity": "ceil(max_quantity / 2)",
+    "initial_discount": {
+      "min": 8,
+      "max": 15
+    },
+    "accept_tolerance": 5
+  },
+  "epochs": 6,
+  "session_plan": [
+    "cooperative",
+    "prober",
+    "cooperative",
+    "prober",
+    "cooperative"
+  ],
+  "seed": 20261009,
+  "protect": [
+    "floor"
+  ]
+}

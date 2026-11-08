@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+results/
+.DS_Store
+*.pem
+*.key
+*.secret
+*.log

@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this repository in academic work, please cite this preliminary research artefact."
+title: "Negotiation Integrity Gateway: Empirical Feasibility Study"
+authors:
+  - family-names: Jaroucheh
+    given-names: Zakwan
+version: 0.1.0
+type: software
+abstract: "A preliminary independent feasibility study of privacy constraints and usefulness in AI-agent negotiation, with offline tests and archived aggregate results."
